@@ -1,0 +1,53 @@
+body {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  
+  .container {
+    height: 100%;
+  }
+  
+  .fill {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    background-color: #990000;
+    padding: 10px;
+    color: #efefef;
+  }
+  
+  hr.divider {
+      border: none;
+      height: 1px;
+      color: #333;
+      background-color: #333;
+      margin-left: 16px;
+      margin-right: 16px;
+  }
+  
+  .btn-default {
+    background-color: #EEEDEB;
+    color: #847d70;
+    border-color: #ddd;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-weight: bold;
+    border-radius:0;
+  }
+  
+  .btn-default-rojo {
+    background-color: #8C0014;
+    color: #fff;
+    border-color: #8C0014;
+  }
+  
+  .btn-default-rojo:hover {
+    background-color: #E60000;
+    color: #fff;
+    border-color: #E60000;
+  }
+  
+  .active{
+    color: #a5000d;
+  }

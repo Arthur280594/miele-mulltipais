@@ -1,0 +1,78 @@
+<aside class="main-sidebar">
+
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu">
+      <!-- Optionally, you can add icons to the links -->
+      <!--Home-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-home"></i> <span class="text-menu">Home</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="pointer" routerLink="/main" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Dashboard</a></li>
+          <li class="pointer" routerLink="/reportes" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Ver reportes</a></li>
+        </ul>
+      </li>
+      <!--Ordenes de servicio-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-ticket"></i> <span class="text-menu">Órdenes de servicio</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="pointer" routerLink="/ver-servicios" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Ver servicios</a></li>
+          <li class="pointer" routerLink="/nuevo-servicio" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Nuevo servicio</a></li>
+        </ul>
+      </li>
+      <!--calendario-->
+      <li class="pointer" routerLink="/calendario" routerLinkActive="active-link">
+        <a>
+          <i class="fa fa-calendar"></i> <span>Calendario</span>
+        </a>
+      </li>
+      <!--Ordenes de servicio-->
+      <li class="treeview pointer">
+        <a>
+          <i class="fa fa-users"></i> <span class="text-menu">Clientes</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="pointer" routerLink="/ver-clientes" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Ver clientes</a></li>
+          <li class="pointer" routerLink="/nuevo-cliente" routerLinkActive="active-link"><a><i class="fa fa-circle-o"></i>Nuevo cliente</a></li>
+        </ul>
+      </li>
+      <!--Encuentas-->
+      <li class="treeview pointer">
+        <a>
+          <i class="fa fa-question-circle-o"></i> <span class="text-menu">Encuestas</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="pointer"><a><i class="fa fa-circle-o"></i>Generales</a></li>
+          <li class="pointer"><a><i class="fa fa-circle-o"></i>Quejas</a></li>
+        </ul>
+      </li>
+      <!--tareas pendientes-->
+      <li class="pointer">
+        <a>
+          <i class="fa fa-address-book-o"></i> <span>Tareas pendientes</span>
+        </a>
+      </li>
+
+    </ul>
+    <!-- /.sidebar-menu -->
+  </section>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,57 @@
+.title-red {
+    color: red;
+}
+
+.location{
+    padding: 0px 0px 0px 10px;
+    position: absolute;
+}
+
+.bienvenido-text{
+    position: absolute;
+    color: GRAY;
+    top: 50px;
+}
+
+.imgs {
+    height: 30px;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.img-redondeada {
+    border-radius: 8px;
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    opacity: 50%;
+}
+
+.img-redondeada:hover {
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: grayscale(0%);
+    opacity: 90%;
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.pading-50 {
+    padding: 50px;
+}
+
+.active {
+    color: #a5000D;
+    .img-redondeada{
+    -webkit-filter: grayscale(0%);
+    -moz-filter: grayscale(0%);
+    -ms-filter: grayscale(0%);
+    -o-filter: grayscale(0%);
+    filter: grayscale(0%);
+    opacity: 90%;
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    }
+}

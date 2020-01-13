@@ -1,0 +1,105 @@
+<!-- Filters -->
+<div class="row">
+  <div class="col-md-12">
+    <h2>
+      Filtros
+    </h2>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Garantía" name="garantia" (selectionChange)="onFilterConfigChanged(FILTER_WARRANTY, $event.value);">
+          <mat-option *ngFor="let value of warrantyValues" [value]="value.id == 1 ? true : false">
+            {{ value.desc_garantia }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="myDatepicker" placeholder="Fecha de inicio" [max]="maxDateFirst" (dateChange)="changeDate('DATE_INIT', $event)">
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="myDatepicker2" placeholder="Fecha de fin" [min]="minDateEnd" (dateChange)="changeDate('DATE_END', $event)">
+      <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Tipo de servicio" name="tipoDeServicio" (selectionChange)="onServiceTypeChanged($event.value);">
+          <mat-option *ngFor="let value of serviceValues" [value]="value.id">
+            {{ value.desc_tipo_servicio }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Sub Tipo de servicio" name="tipoDeServicio" (selectionChange)="onFilterConfigChanged(FILTER_SUB_SERVICE, $event.value);">
+          <mat-option *ngFor="let value of subServiceValues" [value]="value.id">
+            {{ value.sub_desc_tipo_servicio }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Tipo de Técnico" name="tipoDeTecnico" (selectionChange)="onTechnicTypeChanged($event.value);">
+          <mat-option *ngFor="let value of technicValues" [value]="value.id">
+            {{ value.desc_tipo }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Sub Tipo de servicio" name="subTipoDeServicio" (selectionChange)="onFilterConfigChanged(FILTER_SUB_TECHNIC, $event.value);">
+          <mat-option *ngFor="let value of subTechnicValues" [value]="value.id">
+            {{ value.sub_desc_tipo }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="col-md-3" *ngIf="graphConfigData.TipoTecnico == 1">
+    <div class="form-group">
+      <mat-form-field class="full-width">
+        <mat-select placeholder="Técnico" name="tecnico" (selectionChange)="onFilterConfigChanged(FILTER_TECNICO, $event.value);">
+          <mat-option *ngFor="let value of data_tecnicos" [value]="value.id">
+            {{ value.tecnico }}
+          </mat-option>
+          <mat-option [value]="'null'">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3 pull-right">
+    <span class="input-group-btn">
+      <button type="button" class="pull-center btn btn-default btn-default-rojo" (click)="onFilterClicked();">
+        {{ buttonText }}
+      </button>
+    </span>
+  </div>
+</div>

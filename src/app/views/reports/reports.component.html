@@ -1,0 +1,228 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Reportes
+      </h1>
+      <ol class="breadcrumb">
+        <li routerLink="/" class="pointer"><a><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Reportes</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- Info boxes -->
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Selecciona un reporte" name="reportes" [(ngModel)]="reportType" (selectionChange)="onReportTypeChanged($event.value);">
+              <input type="text" [(ngModel)] = "reportsFilter.text" class="full-width form-control">
+              <mat-option *ngFor="let value of reports | filterBy: reportsFilter" [value]="value">
+                {{ value.text }}
+              </mat-option>
+              
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Filters 
+      <ui-filter-config #filters buttonText="Buscar" (onFilter)="onSearch($event[0]);"></ui-filter-config>
+      /.row -->
+      <div class="row container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>
+              Filtros
+            </h2>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Garantía" name="garantia" (selectionChange)="onFilterConfigChanged(FILTER_WARRANTY, $event.value);">
+                  <mat-option *ngFor="let value of warrantyValues" [value]="value.id == 1 ? true : false">
+                    {{ value.desc_garantia }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field class="full-width">
+              <input matInput [matDatepicker]="myDatepicker" placeholder="Fecha de inicio" [max]="maxDateFirst" (dateChange)="changeDate('DATE_INIT', $event)">
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <mat-form-field class="full-width">
+              <input matInput [matDatepicker]="myDatepicker2" placeholder="Fecha de fin" [min]="minDateEnd" (dateChange)="changeDate('DATE_END', $event)">
+              <mat-datepicker-toggle matSuffix [for]="myDatepicker2"></mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Tipo de servicio" name="tipoDeServicio" (selectionChange)="onServiceTypeChanged($event.value);">
+                  <input type="text" [(ngModel)]="userFilter" style="width: 100%;" placeholder="Filtro" >
+                  <mat-option *ngFor="let value of serviceValues | filterBy: userFilter" [value]="value.id">
+                    {{ value.desc_tipo_servicio }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Sub Tipo de servicio" name="tipoDeServicio" (selectionChange)="onFilterConfigChanged(FILTER_SUB_SERVICE, $event.value);">
+                  <mat-option *ngFor="let value of subServiceValues" [value]="value.id">
+                    {{ value.sub_desc_tipo_servicio }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Tipo de Técnico" name="tipoDeTecnico" (selectionChange)="onTechnicTypeChanged($event.value);">
+                  <mat-option *ngFor="let value of technicValues" [value]="value.id">
+                    {{ value.desc_tipo }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Sub Tipo de servicio" name="subTipoDeServicio" (selectionChange)="onFilterConfigChanged(FILTER_SUB_TECHNIC, $event.value);">
+                  <mat-option *ngFor="let value of subTechnicValues" [value]="value.id">
+                    {{ value.sub_desc_tipo }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-3" >
+            <div class="form-group">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Técnico" name="tecnico" (selectionChange)="onFilterConfigChanged(FILTER_TECNICO, $event.value);">
+                  <mat-option *ngFor="let value of data_tecnicos" [value]="value.id">
+                    {{ value.tecnico }}
+                  </mat-option>
+                  <mat-option [value]="'null'">Todos</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 pull-right">
+            <span class="input-group-btn">
+              <button type="button" class="pull-center btn btn-default btn-default-rojo" (click)="onFilterClicked();">
+                Filtrar
+              </button>
+            </span>
+          </div>
+        </div>
+        
+        </div>
+        
+      <div class="row">
+        <hr class="divider" />
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <span *ngIf="dataSource.data.length >= 0">Resultado(s): {{ dataSource.data.length }}</span>
+          <!--<span *ngIf="shouldDisplayedPercentage">%</span>-->
+        </div>
+        <div class="pull-right col-md-3">
+          <span class="input-group-btn">
+            <button id="exportToExcelBtn" type="button" class="pull-center btn btn-default btn-default-rojo" (click)="exportToExcel();">
+              Exportar Excel
+            </button>
+          </span>
+        </div>
+      </div>
+      <!-- Main row -->
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Data table -->
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Servicios</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div #TABLE>
+                <mat-table #table [dataSource]="dataSource">
+                  <ng-container matColumnDef="folio">
+                    <mat-header-cell *matHeaderCellDef> FOLIO </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit">{{element.folio}}</a>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="ibs">
+                    <mat-header-cell *matHeaderCellDef> IBS </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit"><span>{{element.ibs}}</span></a>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="tipo-servicio">
+                    <mat-header-cell *matHeaderCellDef> TIPO SERVICIO </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit"><span>{{element.tipo_servicio}}</span></a>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="sub-tipo-servicio">
+                    <mat-header-cell *matHeaderCellDef> SUB-TIPO SERVICIO </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit"><span>{{element.subtiposervicio}}</span></a>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="estatus-servicio">
+                    <mat-header-cell *matHeaderCellDef> ESTATUS SERVICIO </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit"><span>{{element.estatus_servicio}}</span></a>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="fecha-de-creacion">
+                    <mat-header-cell *matHeaderCellDef> FECHA DE CREACIÓN </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a style="cursor:pointer; color:inherit"><span>{{element.fecha_creacion}}</span></a>
+                    </mat-cell>
+                  </ng-container>
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+                <mat-paginator #paginator
+                               [pageSize]="5"
+                               [pageSizeOptions]="[5, 10]">
+                </mat-paginator>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  
