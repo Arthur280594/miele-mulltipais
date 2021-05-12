@@ -31,7 +31,7 @@
     "bootstrap": "^3.3.7",
     "bootstrap-datepicker": "^1.7.1",
     "bootstrap3-wysihtml5-bower": "^0.3.3",
-    "chart.js": "^2.7.3",
+    "chart.js": "^2.9.4",
     "daterangepicker": "^2.1.25",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
