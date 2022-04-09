@@ -43,7 +43,7 @@
     "jquery-sparkline": "^2.4.0",
     "jquery-ui": "^1.12.1",
     "jqueryui": "^1.11.1",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "morris.js": "^0.5.0",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-loading": "^8.0.0",
